@@ -50,11 +50,20 @@ export default function VideoItem({ uploader, video }: VideoProps) {
       target="_blank"
       rel="noopener noreferrer"
     >
-      <img
-        className="w-3/5 sm:w-full object-cover aspect-video rounded-lg"
-        src={thumbnail}
-        alt={title}
-      ></img>
+      <div className="w-3/5 sm:w-full relative">
+        <img
+          className="object-cover aspect-video rounded-lg"
+          src={thumbnail}
+          alt={title}
+        ></img>
+        {isLive && (
+          <div className="absolute left-0 top-0 mx-3 my-2">
+            <span className="px-1 py-0.5 rounded bg-[#eb0400] text-sm font-semibold whitespace-nowrap text-white">
+              LIVE
+            </span>
+          </div>
+        )}
+      </div>
       <div className="w-2/5 sm:w-full flex flex-col-reverse justify-between p-1.5 gap-1 break-all">
         <div>
           <img
@@ -65,12 +74,14 @@ export default function VideoItem({ uploader, video }: VideoProps) {
           <span className={`font-bold break-keep ${uploader.textColor}`}>
             {uploader.name}
           </span>{" "}
-          <span
-            className={`text-sm whitespace-nowrap text-gray-500`}
-            title={!isLive ? date?.toLocaleString() : undefined}
-          >
-            {isLive ? "LIVE" : getRelativeTime(date)}
-          </span>
+          {!isLive && date && (
+            <span
+              className={`text-sm whitespace-nowrap text-gray-500`}
+              title={date.toLocaleString()}
+            >
+              {getRelativeTime(date)}
+            </span>
+          )}
         </div>
         {title}
       </div>
