@@ -1,0 +1,149 @@
+{
+  "hosting": {
+    "public": "build",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "redirects": [
+      {
+        "source": "/a/moyo",
+        "destination": "https://bj.afreecatv.com/duvl123",
+        "type": 301
+      },
+      {
+        "source": "/a/모요",
+        "destination": "https://bj.afreecatv.com/duvl123",
+        "type": 301
+      },
+      {
+        "source": "/a/elsea",
+        "destination": "https://bj.afreecatv.com/elisehs",
+        "type": 301
+      },
+      {
+        "source": "/a/엘시",
+        "destination": "https://bj.afreecatv.com/elisehs",
+        "type": 301
+      },
+      {
+        "source": "/a/pyowoo",
+        "destination": "https://bj.afreecatv.com/pyowoo",
+        "type": 301
+      },
+      {
+        "source": "/a/표우",
+        "destination": "https://bj.afreecatv.com/pyowoo",
+        "type": 301
+      },
+      {
+        "source": "/a/hanana",
+        "destination": "https://bj.afreecatv.com/17282486",
+        "type": 301
+      },
+      {
+        "source": "/a/하나나",
+        "destination": "https://bj.afreecatv.com/17282486",
+        "type": 301
+      },
+      {
+        "source": "/a/hiyo",
+        "destination": "https://bj.afreecatv.com/song1218",
+        "type": 301
+      },
+      {
+        "source": "/a/하이요",
+        "destination": "https://bj.afreecatv.com/song1218",
+        "type": 301
+      },
+      {
+        "source": "/y/moyo",
+        "destination": "https://www.youtube.com/@M0Y020",
+        "type": 301
+      },
+      {
+        "source": "/y/모요",
+        "destination": "https://www.youtube.com/@M0Y020",
+        "type": 301
+      },
+      {
+        "source": "/y/elsea",
+        "destination": "https://www.youtube.com/@MusiaElsea",
+        "type": 301
+      },
+      {
+        "source": "/y/엘시",
+        "destination": "https://www.youtube.com/@MusiaElsea",
+        "type": 301
+      },
+      {
+        "source": "/y/pyowoo",
+        "destination": "https://www.youtube.com/@user-pm4sl3vq6o",
+        "type": 301
+      },
+      {
+        "source": "/y/표우",
+        "destination": "https://www.youtube.com/@user-pm4sl3vq6o",
+        "type": 301
+      },
+      {
+        "source": "/y/hanana",
+        "destination": "https://www.youtube.com/@hanana777",
+        "type": 301
+      },
+      {
+        "source": "/y/하나나",
+        "destination": "https://www.youtube.com/@hanana777",
+        "type": 301
+      },
+      {
+        "source": "/y/hiyo",
+        "destination": "https://www.youtube.com/@hi_yo",
+        "type": 301
+      },
+      {
+        "source": "/y/하이요",
+        "destination": "https://www.youtube.com/@hi_yo",
+        "type": 301
+      },
+      {
+        "source": "/y",
+        "destination": "https://www.youtube.com/@cr1108",
+        "type": 301
+      },
+      {
+        "source": "/c/:post*",
+        "destination": "https://cafe.naver.com/cr1108/:post",
+        "type": 301
+      },
+      {
+        "source": "/c",
+        "destination": "https://cafe.naver.com/cr1108",
+        "type": 301
+      }
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ],
+    "headers": [
+      {
+        "source": "**/*.@(jpg|jpeg|gif|png|ico)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "max-age=604800"
+          }
+        ]
+      },
+      {
+        "source": "**/*.@(webp|svg|js|css)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "max-age=31536000"
+          }
+        ]
+      }
+    ]
+  }
+}
