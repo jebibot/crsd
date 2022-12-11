@@ -85,7 +85,9 @@ function App() {
         `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${m.youtubeId.replace(
           "UC",
           "UU"
-        )}&maxResults=3&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`,
+        )}&maxResults=3&fields=items%2Fsnippet(publishedAt%2Ctitle%2Cthumbnails%2Fmedium%2Furl%2CresourceId%2FvideoId)&key=${
+          process.env.REACT_APP_YOUTUBE_API_KEY
+        }`,
         fetchOptions
       )
         .then((r) => r.json())
