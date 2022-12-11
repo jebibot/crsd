@@ -57,7 +57,7 @@ export default function VideoItem({ uploader, video }: VideoProps) {
           alt={title}
         ></img>
         {isLive && (
-          <div className="absolute left-0 top-0 mx-3 my-2">
+          <div className="absolute left-0 top-0 mx-2.5 my-1.5">
             <span className="px-1 py-0.5 rounded bg-[#eb0400] text-sm font-semibold whitespace-nowrap text-white">
               LIVE
             </span>
