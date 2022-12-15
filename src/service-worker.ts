@@ -104,7 +104,7 @@ registerRoute(
 );
 
 registerRoute(
-  new RegExp("https://bjapi.afreecatv.com/api/.*/board/"),
+  new RegExp("https://bjapi\\.afreecatv\\.com/api/.*/board/"),
   new NetworkFirst({ cacheName: "api" })
 );
 
