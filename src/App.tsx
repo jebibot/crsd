@@ -23,7 +23,7 @@ const MEMBERS: (Channel | Bj)[] = [
     youtubeHandle: "M0Y020",
     youtubeId: "UCXFiD5eQqN3VWsKV4Jsqh6w",
     bjId: "duvl123",
-    noticeBoard: "90707682",
+    noticeBoard: "89879232",
     banner: moyoBanner,
   },
   {
