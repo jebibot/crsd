@@ -6,6 +6,7 @@ export type Bj = {
   youtubeId: string;
   bjId: string;
   noticeBoard: string;
+  private?: boolean;
   banner: string;
 };
 
@@ -31,4 +32,13 @@ export type Video = {
   url: string;
   mobileUrl?: string;
   uploader: Bj | Channel;
+};
+
+export type Post = {
+  bbs_no: number;
+  user_id: string;
+  reg_date: string;
+  title_no: number;
+  title_name: string;
+  content: string | { summary: string };
 };

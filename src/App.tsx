@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import NoticeItem from "./NoticeItem";
 import VideoItem from "./VideoItem";
-import { Bj, Channel, Notice, Video } from "./types";
+import { Bj, Channel, Notice, Post, Video } from "./types";
 import crescendoLogo from "./logo/crescendo.svg";
 import moyoBanner from "./banner/moyo.webp";
 import elseaBanner from "./banner/elsea.webp";
@@ -23,7 +23,8 @@ const MEMBERS: (Channel | Bj)[] = [
     youtubeHandle: "M0Y020",
     youtubeId: "UCXFiD5eQqN3VWsKV4Jsqh6w",
     bjId: "duvl123",
-    noticeBoard: "89879232",
+    noticeBoard: "91567869",
+    private: true,
     banner: moyoBanner,
   },
   {
@@ -107,23 +108,42 @@ function App() {
         continue;
       }
       fetch(
-        `https://bjapi.afreecatv.com/api/${m.bjId}/board/${m.noticeBoard}?page=1&per_page=1&field=title%2Ccontents&keyword=&type=post&months=`,
+        m.private
+          ? `https://bjapi.afreecatv.com/api/${m.bjId}/home`
+          : `https://bjapi.afreecatv.com/api/${m.bjId}/board/${m.noticeBoard}?page=1&per_page=1&field=title%2Ccontents&keyword=&type=post&months=`,
         fetchOptions
       )
         .then((r) => r.json())
         .then((r) => {
+          let notice: Post | undefined;
           if (r.data?.length) {
-            const notice = r.data[0];
-            setNotices((n) => ({
-              ...n,
-              [m.bjId]: {
-                no: notice.title_no,
-                title: notice.title_name,
-                date: new Date(`${notice.reg_date.replace(" ", "T")}+09:00`),
-                summary: notice.content.summary,
-              },
-            }));
+            notice = r.data[0];
+          } else if (r.boards) {
+            const posts: Post[] = r.boards;
+            for (const p of posts.sort((a, b) => b.title_no - a.title_no)) {
+              if (
+                p.bbs_no.toString() === m.noticeBoard &&
+                p.user_id === m.bjId
+              ) {
+                notice = p;
+              }
+            }
           }
+          if (notice == null) {
+            return;
+          }
+          setNotices((n) => ({
+            ...n,
+            [m.bjId]: {
+              no: notice!.title_no.toString(),
+              title: notice!.title_name,
+              date: new Date(`${notice!.reg_date.replace(" ", "T")}+09:00`),
+              summary:
+                typeof notice!.content === "string"
+                  ? notice!.content
+                  : notice!.content.summary,
+            },
+          }));
         });
 
       fetch(`https://bjapi.afreecatv.com/api/${m.bjId}/station`, fetchOptions)
