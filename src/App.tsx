@@ -47,16 +47,6 @@ const MEMBERS: (Channel | Bj)[] = [
     banner: pyowooBanner,
   },
   {
-    name: "하나나",
-    bgColor: "bg-pink-100",
-    textColor: "text-pink-500",
-    youtubeHandle: "hanana777",
-    youtubeId: "UCi3BnqSK4DPzRj8szUeLIQA",
-    bjId: "17282486",
-    noticeBoard: "90073318",
-    banner: hananaBanner,
-  },
-  {
     name: "하이요",
     bgColor: "bg-sky-100",
     textColor: "text-sky-500",
@@ -217,6 +207,19 @@ function App() {
               ></NoticeItem>
             )
         )}
+        <a
+          className="flex items-center justify-center"
+          href="https://bj.afreecatv.com/17282486"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="하나나 방송국"
+        >
+          <img
+            className="max-h-48"
+            src={hananaBanner}
+            alt="굿바이 하나나"
+          ></img>
+        </a>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-3 xl:grid-cols-5 gap-4">
         {MEMBERS.map(
