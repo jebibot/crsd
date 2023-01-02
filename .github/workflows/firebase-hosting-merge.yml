@@ -26,11 +26,6 @@ jobs:
       - name: Run lint
         run: npm run lint
 
-      - name: Build
-        run: npm run build
-        env:
-          REACT_APP_YOUTUBE_API_KEY: ${{ secrets.REACT_APP_YOUTUBE_API_KEY }}
-
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
