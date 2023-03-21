@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "prettier": "^2.8.5"
+    "prettier": "^2.8.6"
   },
   "scripts": {
     "lint": "prettier --check .",
